@@ -9,3 +9,12 @@ array_relationships:
       table:
         name: meetings
         schema: public
+select_permissions:
+- permission:
+    columns:
+    - email
+    - id
+    - name
+    - surname
+    filter: {}
+  role: user
