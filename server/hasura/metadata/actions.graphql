@@ -1,0 +1,15 @@
+type Mutation {
+  register(
+    data: RegisterInput!
+  ): RegisterOutput!
+}
+
+input RegisterInput {
+  email: String!
+  password: String!
+}
+
+type RegisterOutput {
+  accessToken: String!
+}
+
