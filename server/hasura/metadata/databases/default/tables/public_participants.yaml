@@ -1,0 +1,10 @@
+table:
+  name: participants
+  schema: public
+object_relationships:
+- name: meeting
+  using:
+    foreign_key_constraint_on: meeting_id
+- name: user
+  using:
+    foreign_key_constraint_on: user_id

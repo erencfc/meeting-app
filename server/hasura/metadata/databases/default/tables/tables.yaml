@@ -1,1 +1,3 @@
-[]
+- "!include public_meetings.yaml"
+- "!include public_participants.yaml"
+- "!include public_users.yaml"
