@@ -14,3 +14,20 @@ export const INSERT_USER_MUTATION = `
         }
     }
 `;
+
+export const LOGIN_QUERY = `
+    query Login($email: String!) {
+        users(
+            where: { 
+                email: { 
+                    _eq: $email 
+                },
+            },
+            limit: 1
+        ) {
+            id
+            email
+            password
+        }
+    }
+`;
