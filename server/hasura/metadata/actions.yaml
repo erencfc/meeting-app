@@ -1,12 +1,23 @@
 actions:
+- name: login
+  definition:
+    kind: synchronous
+    handler: http://host.docker.internal:4000/auth/login
+  permissions:
+  - role: anonymous
+  comment: login
 - name: register
   definition:
     kind: synchronous
     handler: '{{ACTION_BASE_ENDPOINT}}/auth/register'
+  permissions:
+  - role: anonymous
 custom_types:
   enums: []
   input_objects:
   - name: RegisterInput
+  - name: LoginInput
   objects:
   - name: RegisterOutput
+  - name: LoginOutput
   scalars: []
