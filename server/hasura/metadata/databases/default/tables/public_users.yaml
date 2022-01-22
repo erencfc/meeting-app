@@ -9,6 +9,12 @@ array_relationships:
       table:
         name: meetings
         schema: public
+computed_fields:
+- definition:
+    function:
+      name: user_full_name
+      schema: public
+  name: fullName
 select_permissions:
 - permission:
     columns:
@@ -16,5 +22,7 @@ select_permissions:
     - id
     - name
     - surname
+    computed_fields:
+    - fullName
     filter: {}
   role: user
