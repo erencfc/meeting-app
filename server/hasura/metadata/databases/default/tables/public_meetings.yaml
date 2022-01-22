@@ -13,3 +13,21 @@ array_relationships:
       table:
         name: participants
         schema: public
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - meeting_date
+    - id
+    - user_id
+    - title
+    - created_at
+    - updated_at
+    filter:
+      _or:
+      - user_id:
+          _eq: X-Hasura-User-Id
+      - participants:
+          user_id:
+            _eq: X-Hasura-User-Id
+  role: user
