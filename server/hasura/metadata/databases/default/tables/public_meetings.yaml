@@ -13,6 +13,15 @@ array_relationships:
       table:
         name: participants
         schema: public
+insert_permissions:
+- permission:
+    backend_only: false
+    check: {}
+    columns:
+    - meeting_date
+    - title
+    - user_id
+  role: user
 select_permissions:
 - permission:
     allow_aggregations: true
@@ -31,3 +40,14 @@ select_permissions:
           user_id:
             _eq: X-Hasura-User-Id
   role: user
+event_triggers:
+- definition:
+    enable_manual: false
+    insert:
+      columns: "*"
+  name: meeting_created
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{ACTION_BASE_ENDPOINT}}/webhooks/meeting_created"
