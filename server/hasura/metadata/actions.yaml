@@ -10,6 +10,9 @@ actions:
   definition:
     kind: ""
     handler: http://host.docker.internal:4000/auth/me
+    forward_client_headers: true
+  permissions:
+  - role: user
 - name: register
   definition:
     kind: synchronous
@@ -25,4 +28,13 @@ custom_types:
   - name: RegisterOutput
   - name: LoginOutput
   - name: MeOutput
+    relationships:
+    - remote_table:
+        schema: public
+        name: users
+      name: user
+      source: default
+      type: object
+      field_mapping:
+        user_id: id
   scalars: []
