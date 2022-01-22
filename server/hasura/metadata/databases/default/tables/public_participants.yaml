@@ -20,7 +20,17 @@ select_permissions:
     allow_aggregations: true
     columns:
     - id
+    - is_approved
     - meeting_id
     - user_id
     filter: {}
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - is_approved
+    filter:
+      user_id:
+        _eq: X-Hasura-User-Id
   role: user
