@@ -4,6 +4,10 @@ type Mutation {
   ): LoginOutput
 }
 
+type Query {
+  me: MeOutput
+}
+
 type Mutation {
   register(
     data: RegisterInput!
@@ -28,5 +32,9 @@ type RegisterOutput {
 
 type LoginOutput {
   accessToken: String!
+}
+
+type MeOutput {
+  user_id: String!
 }
 

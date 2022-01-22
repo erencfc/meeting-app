@@ -6,6 +6,10 @@ actions:
   permissions:
   - role: anonymous
   comment: login
+- name: me
+  definition:
+    kind: ""
+    handler: http://host.docker.internal:4000/auth/me
 - name: register
   definition:
     kind: synchronous
@@ -20,4 +24,5 @@ custom_types:
   objects:
   - name: RegisterOutput
   - name: LoginOutput
+  - name: MeOutput
   scalars: []
