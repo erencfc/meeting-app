@@ -16,11 +16,14 @@ array_relationships:
 insert_permissions:
 - permission:
     backend_only: false
-    check: {}
+    check:
+      user_id:
+        _eq: X-Hasura-User-Id
     columns:
     - meeting_date
     - title
-    - user_id
+    set:
+      user_id: x-hasura-User-Id
   role: user
 select_permissions:
 - permission:

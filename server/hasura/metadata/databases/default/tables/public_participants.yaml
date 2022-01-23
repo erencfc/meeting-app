@@ -11,8 +11,12 @@ object_relationships:
 insert_permissions:
 - permission:
     backend_only: false
-    check: {}
+    check:
+      meeting:
+        user_id:
+          _eq: X-Hasura-User-Id
     columns:
+    - meeting_id
     - user_id
   role: user
 select_permissions:
